@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Contact = () => {
+    const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,10 +36,11 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Contactez notre équipe pour un accompagnement personnalisé
+            {t('contacts.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Nos experts sont là pour vous accompagner dans vos paiements internationaux
+            {t('contacts.subtitle')}
+
           </p>
         </div>
 
@@ -45,7 +48,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Nos coordonnées</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('contacts.info.title')}</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
@@ -53,7 +56,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-[#AE3D7D]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
+                    <h4 className="font-semibold text-gray-900"> {t('contacts.labels.email')} </h4>
                     <a href="mailto:contact@bbsmastergroup.com" className="text-[#AE3D7D] hover:text-[#E46E2F] transition-colors">
                       contact@bbsmastergroup.com
                     </a>
@@ -65,9 +68,9 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-[#AE3D7D]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Téléphone</h4>
+                    <h4 className="font-semibold text-gray-900"> {t('contacts.info.phone')} </h4>
                     <a href='tel:+221776919799' className='text-gray-600 text-[#AE3D7D] hover:text-[#E46E2F]'>+221 776919799</a>
-                    <p className="text-gray-600">Support 24/7 disponible</p>
+                    <p className="text-gray-600"> {t('contacts.info.support')} </p>
                   </div>
                 </div>
 
@@ -76,8 +79,8 @@ const Contact = () => {
                     <MapPin className="w-6 h-6 text-[#AE3D7D]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Présence locale</h4>
-                    <p className="text-gray-600">6 pays d'Afrique de l'Ouest</p>
+                    <h4 className="font-semibold text-gray-900"> {t('contacts.info.location')} </h4>
+                    <p className="text-gray-600">{t('contacts.info.countries')}</p>
                   </div>
                 </div>
               </div>
@@ -85,23 +88,23 @@ const Contact = () => {
 
             {/* Trust badges */}
             <div className="bg-white rounded-3xl p-8 shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Pourquoi nous faire confiance ?</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{t('contacts.trust.title')}</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-[#AE3D7D]" />
-                  <span className="text-gray-700">Conforme à la réglementation BCEAO</span>
+                  <span className="text-gray-700"> {t('contacts.trust.items_1')} </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-[#AE3D7D]" />
-                  <span className="text-gray-700">Présence physique dans chaque pays</span>
+                  <span className="text-gray-700">{t('contacts.trust.items_2')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-[#AE3D7D]" />
-                  <span className="text-gray-700">Accompagnement personnalisé</span>
+                  <span className="text-gray-700">{t('contacts.trust.items_3')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-[#AE3D7D]" />
-                  <span className="text-gray-700">Plateforme sécurisée 24/7</span>
+                  <span className="text-gray-700">{t('contacts.trust.items_3')}</span>
                 </div>
               </div>
             </div>
@@ -109,20 +112,20 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Demander un devis</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('contacts.section_title')}</h3>
             
             {isSubmitted ? (
               <div className="text-center py-8">
                 <CheckCircle className="w-16 h-16 text-[#AE3D7D] mx-auto mb-4" />
-                <h4 className="text-xl font-bold text-gray-900 mb-2">Message envoyé !</h4>
-                <p className="text-gray-600">Nous vous recontacterons dans les plus brefs délais.</p>
+                <h4 className="text-xl font-bold text-gray-900 mb-2">{t('contacts.submitted_title')}!</h4>
+                <p className="text-gray-600"> {t('contacts.submitted_message')} </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nom complet *
+                      {t('contacts.labels.name')}
                     </label>
                     <input
                       type="text"
@@ -136,7 +139,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
+                      {t('contacts.labels.email')}
                     </label>
                     <input
                       type="email"
@@ -153,7 +156,7 @@ const Contact = () => {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Entreprise *
+                      {t('contacts.labels.company')}
                     </label>
                     <input
                       type="text"
@@ -167,7 +170,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
-                      Pays *
+                      {t('contacts.labels.country')}
                     </label>
                     <select
                       id="country"
@@ -177,7 +180,7 @@ const Contact = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#AE3D7D] focus:border-transparent transition-all"
                     >
-                      <option value="">Sélectionnez votre pays</option>
+                      <option value=""> {t('contacts.labels.choose_country')} </option>
                       {countries.map((country) => (
                         <option key={country} value={country}>{country}</option>
                       ))}
@@ -187,7 +190,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
+                    {t('contacts.labels.message')}
                   </label>
                   <textarea
                     id="message"
@@ -195,7 +198,7 @@ const Contact = () => {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Décrivez vos besoins en paiements internationaux..."
+                    placeholder={t('contacts.placeholder.message')}
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#AE3D7D] focus:border-transparent transition-all resize-none"
                   ></textarea>
                 </div>
@@ -205,7 +208,7 @@ const Contact = () => {
                   className="w-full bg-gradient-to-r from-[#E46E2F] to-[#AE3D7D] text-white py-4 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center"
                 >
                   <Send className="w-5 h-5 mr-2" />
-                  Envoyer la demande
+                  {t('contacts.submit')}
                 </button>
               </form>
             )}

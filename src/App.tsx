@@ -12,9 +12,11 @@ import ConformiteFloatingModal from './components/ConformiteFloatingModal';
 import CGU from './components/CGU';
 import Confidentialite from './components/Confidentialite';
 import Securite from './components/Securite';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 function App() {
   return (
+                  <LanguageProvider>
     <BrowserRouter>
       <Routes>
         {/* Route principale : Landing page */}
@@ -22,6 +24,7 @@ function App() {
           path="/"
           element={
             <div className="min-h-screen">
+
               <Header />
               <main>
                 <Hero />
@@ -33,6 +36,7 @@ function App() {
               </main>
               <CookieBanner />
               <Footer />
+
             </div>
           }
         />
@@ -45,6 +49,7 @@ function App() {
         <Route path="/securite" element={<Securite />} />
       </Routes>
     </BrowserRouter>
+    </LanguageProvider>
   );
 }
 

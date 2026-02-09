@@ -1,30 +1,40 @@
 import React from 'react';
-import { CreditCard, Banknote, TrendingUp, FileText, Shield, Clock } from 'lucide-react';
+import {
+  CreditCard,
+  Banknote,
+  TrendingUp,
+  FileText,
+  Shield,
+  Clock
+} from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
       icon: CreditCard,
-      title: 'Paiement en devise étrangère',
-      description: 'EUR, USD, CNY et autres devises principales acceptées',
+      title: t('services.payment_title'),
+      description: t('services.payment_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     },
     {
       icon: Banknote,
-      title: 'Virements internationaux',
-      description: 'SWIFT, SEPA, IBAN - Tous les standards bancaires',
+      title: t('services.transfer_title'),
+      description: t('services.transfer_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     },
     {
       icon: TrendingUp,
-      title: 'Taux compétitifs',
-      description: 'Taux de change transparents et avantageux du marché',
+      title: t('services.rate_title'),
+      description: t('services.rate_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     },
     {
       icon: FileText,
-      title: 'Gestion documentaire',
-      description: 'Justificatifs douaniers et factures fournisseurs',
+      title: t('services.documents_title'),
+      description: t('services.documents_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     }
   ];
@@ -32,44 +42,43 @@ const Services = () => {
   const advantages = [
     {
       icon: Shield,
-      title: 'Présence locale',
-      description: 'Agences physiques dans tous les pays couverts'
+      title: t('services.presence_title'),
+      description: t('services.presence_description')
     },
     {
       icon: Clock,
-      title: 'Conformité BCEAO',
-      description: 'Respect total de la réglementation locale'
+      title: t('services.compliance_title'),
+      description: t('services.compliance_description')
     },
     {
       icon: CreditCard,
-      title: 'Accompagnement 24/7',
-      description: 'Support personnalisé pour chaque transaction'
+      title: t('services.support_title'),
+      description: t('services.support_description')
     },
     {
       icon: FileText,
-      title: 'Plateforme sécurisée',
-      description: 'Interface digitale avec accès permanent'
+      title: t('services.platform_title'),
+      description: t('services.platform_description')
     }
   ];
 
   return (
     <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Services Header */}
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Un service pensé pour les entreprises en{' '}
+            {t('services.header')}
             <span className="bg-gradient-to-r from-[#AE3D7D] to-[#E46E2F] bg-clip-text text-transparent">
-              Afrique de l'Ouest
+              {t('services.header_emphasis')}
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Notre solution digitale vous permet d'effectuer des paiements internationaux 
-            rapides et conformes pour régler vos fournisseurs partout dans le monde.
+            {t('services.subheader')}
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {services.map((service, index) => (
             <div
@@ -85,14 +94,14 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Why Choose Us */}
+        {/* Advantages */}
         <div className="bg-gradient-to-br from-gray-50 to-pink-50 rounded-3xl p-8 md:p-12">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Pourquoi nous choisir pour vos paiements à l'international ?
+              {t('services.why_title')}
             </h3>
             <p className="text-lg text-gray-600">
-              Une expertise locale combinée à une technologie de pointe
+              {t('services.why_description')}
             </p>
           </div>
 

@@ -1,14 +1,16 @@
 import React from 'react';
 import { MapPin, Users, Building2 } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const Countries = () => {
+  const { t } = useLanguage();
   const countries = [
-    { name: 'Sénégal', capital: 'Dakar', flag: '🇸🇳' },
-    { name: 'Côte d\'Ivoire', capital: 'Abidjan', flag: '🇨🇮' },
-    { name: 'Guinée Conakry', capital: 'Conakry', flag: '🇬🇳' },
-    { name: 'Mali', capital: 'Bamako', flag: '🇲🇱' },
-    { name: 'Cameroun', capital: 'Yaoundé', flag: '🇨🇲' },
-    { name: 'Sierra Leone', capital: 'Freetown', flag: '🇸🇱' }
+    { name: t('countries.sn'), capital: t('countries.dakar'), flag: '🇸🇳' },
+    { name: t('countries.ci'), capital: t('countries.abidjan'), flag: '🇨🇮' },
+    { name: t('countries.gn'), capital: t('countries.conakry'), flag: '🇬🇳' },
+    { name: t('countries.ml'), capital: t('countries.bamako'), flag: '🇲🇱' },
+    { name: t('countries.cm'), capital: t('countries.yaounde'), flag: '🇨🇲' },
+    { name: t('countries.sl'), capital: t('countries.freetown'), flag: '🇸🇱' },
   ];
 
   return (
@@ -17,10 +19,10 @@ const Countries = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Pays couverts
+            {t('countries.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Notre présence locale dans 6 pays d'Afrique de l'Ouest pour vous accompagner au plus près
+            {t('countries.subtitle')}
           </p>
         </div>
 
@@ -55,21 +57,21 @@ const Countries = () => {
                 <MapPin className="w-8 h-8" />
               </div>
               <div className="text-3xl font-bold mb-2">6</div>
-              <div className="text-blue-100">Pays couverts</div>
+              <div className="text-blue-100">{t('countries.stat_1')}</div>
             </div>
             <div>
               <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Building2 className="w-8 h-8" />
               </div>
               <div className="text-3xl font-bold mb-2">6+</div>
-              <div className="text-blue-100">Agences locales</div>
+              <div className="text-blue-100">{t('countries.stat_2')}</div>
             </div>
             <div>
               <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8" />
               </div>
               <div className="text-3xl font-bold mb-2">20+</div>
-              <div className="text-blue-100">Entreprises clientes</div>
+              <div className="text-blue-100">{t('countries.stat_3')}</div>
             </div>
           </div>
         </div>

@@ -1,34 +1,37 @@
 import React from 'react';
 import { UserPlus, FileText, CheckCircle, Eye } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 const HowItWorks = () => {
+  const { t } = useLanguage();
+
   const steps = [
     {
       number: '01',
       icon: UserPlus,
-      title: 'Ouverture de compte',
-      description: 'Créez votre compte entreprise en ligne ou via nos agences locales. Un conseiller vous accompagne pour vérifier vos documents (RC, NINEA, pièces d\'identité, etc.).',
+      title: t('howItWork.step_1_title'),
+      description: t('howItWork.step_1_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     },
     {
       number: '02',
       icon: FileText,
-      title: 'Soumission de la demande',
-      description: 'Transmettez votre facture fournisseur, les coordonnées bancaires du bénéficiaire à l\'étranger, et les justificatifs douaniers si nécessaires.',
+      title: t('howItWork.step_2_title'),
+      description: t('howItWork.step_2_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     },
     {
       number: '03',
       icon: CheckCircle,
-      title: 'Validation et taux de change',
-      description: 'Nous validons ensemble la transaction et vous proposons le meilleur taux de change du marché. Dès validation, nous lançons le paiement.',
+      title: t('howItWork.step_3_title'),
+      description: t('howItWork.step_3_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     },
     {
       number: '04',
       icon: Eye,
-      title: 'Suivi en temps réel',
-      description: 'Suivez l\'exécution de votre virement international via votre espace client. Vous recevez une confirmation et preuve de virement (Swift copy) dès que les fonds sont envoyés.',
+      title: t('howItWork.step_4_title'),
+      description: t('howItWork.step_4_description'),
       color: 'from-[#E46E2F] to-[#AE3D7D]'
     }
   ];
@@ -39,11 +42,10 @@ const HowItWorks = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Comment ça marche ?
+            {t('howItWork.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            En 4 étapes simples, payez vos fournisseurs à l'international depuis le Sénégal, 
-            la Côte d'Ivoire, la Guinée Conakry, le Mali, le Cameroun ou la Sierra Leone
+            {t('howItWork.subtitle')}
           </p>
         </div>
 
@@ -55,23 +57,19 @@ const HowItWorks = () => {
           <div className="grid lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                {/* Timeline connector - Mobile */}
                 {index < steps.length - 1 && (
                   <div className="lg:hidden absolute left-8 top-20 w-0.5 h-20 bg-gray-200"></div>
                 )}
 
                 <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative z-10">
-                  {/* Step number */}
                   <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-gray-900 to-gray-700 text-white rounded-2xl flex items-center justify-center font-bold text-lg">
                     {step.number}
                   </div>
 
-                  {/* Icon */}
                   <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-2xl flex items-center justify-center mb-6`}>
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
 
-                  {/* Content */}
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{step.description}</p>
                 </div>
@@ -83,17 +81,16 @@ const HowItWorks = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center bg-white rounded-3xl p-8 shadow-lg">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Un processus rapide, sécurisé et conforme
+            {t('howItWork.cta_title')}
           </h3>
           <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-            Tous nos paiements sont conformes à la réglementation BCEAO. Nous nous assurons que 
-            chaque opération est traçable, auditée, et réalisée dans les délais impartis.
+            {t('howItWork.cta_description')}
           </p>
           <a
-            href="#contact"
+            href="https://b2b.bbsmastergroup.com/login"
             className="inline-flex items-center bg-gradient-to-r from-[#E46E2F] to-[#AE3D7D] text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition-all duration-300"
           >
-            Commencer le processus
+            {t('howItWork.cta_button')}
           </a>
         </div>
       </div>
